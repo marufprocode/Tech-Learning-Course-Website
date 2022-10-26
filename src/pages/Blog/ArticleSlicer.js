@@ -6,7 +6,7 @@ const ArticleSlicer = ({children}) => {
         <>
             {
                 collapsed &&
-                <span>{children.slice(0, 200)}... <br /> <span className='cursor-pointer underline text-blue-600' onClick={()=> setCollapsed(!collapsed)}>Read More</span> </span>             
+                <span>{children.slice(0, 350)}... <br /> <span className='cursor-pointer underline text-blue-600' onClick={()=> setCollapsed(!collapsed)}>Read More</span> </span>             
             }
             {
                 collapsed ||

@@ -62,13 +62,13 @@ const Register = () => {
             <div className="space-y-4">
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm">
-                  Name
+                  Full Name
                 </label>
                 <input
                     required
                   type="text"
                   name="name"
-                  placeholder="Your Name..."
+                  placeholder="Your Full Name..."
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-200 text-gray-700"
                 />
               </div>

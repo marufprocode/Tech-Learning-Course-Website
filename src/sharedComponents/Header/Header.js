@@ -5,6 +5,7 @@ import Hamburger from "./Hamburger";
 import NavLi from "./NavLi";
 import SignUpLoginLink from "./SignUpLoginLink";
 import ThemeSwap from "./ThemeSwap";
+import brandImg from '../../Assets/Brands/LogoPrimary.png'
 
 const Header = () => {
   const {user, userSignOut} = useContext(sharedContext);
@@ -13,8 +14,8 @@ const Header = () => {
     <div>
       <div className="navbar bg-emerald-100 border-b">
         <div className="flex-1">
-          <Link to="/#" className="btn btn-ghost normal-case text-xl">
-            daisyUI
+          <Link to="/#" className="btn bg-sky-300 border-0">
+            <img src={brandImg} alt="brandImage" className="h-[30px]"/>
           </Link>
         </div>
         <div className="flex-none gap-2 hidden md:flex">
