@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { sharedContext } from "../../context/UserContext";
 import Hamburger from "./Hamburger";
 import NavLi from "./NavLi";
 import SignUpLoginLink from "./SignUpLoginLink";
 import ThemeSwap from "./ThemeSwap";
 
 const Header = () => {
+  const {user, userSignOut} = useContext(sharedContext);
+
   return (
     <div>
       <div className="navbar bg-emerald-100 border-b">
@@ -34,11 +37,11 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <div className="flex-none gap-2 hidden">
+        <div className={`flex-none gap-2 ${user? 'flex':'hidden'}`}>
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt="iamge" />
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left tooltip-success hover:border-gray-300 hover:border-2" data-tip={user?.displayName}>
+              <div className="w-11 rounded-full">
+                <img src={user?.photoURL} alt="iamge" />
               </div>
             </label>
             <ul
@@ -46,21 +49,21 @@ const Header = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/#" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
+                <button className="justify-between font-semibold text-purple-700 text-left">
+                  {user?.displayName} 
+                  <span className="badge">Welcome</span>
+                </button>
               </li>
               <li>
-                <Link to="/#">Settings</Link>
+                <Link to="/profile">Edit Profile</Link>
               </li>
               <li>
-                <Link to="/#">Logout</Link>
+                <button onClick={userSignOut}>Logout</button>
               </li>
             </ul>
           </div>
         </div>
-        <div className="hidden md:flex flex-none gap-2">
+        <div className={`hidden flex-none gap-2 ${user? 'hidden':'md:flex'}`}>
           <SignUpLoginLink/>
         </div>
       </div>

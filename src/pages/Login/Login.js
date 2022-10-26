@@ -1,19 +1,25 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Modal from "./Modal";
 import Lottie from "lottie-react";
 import loginLottie from "../../Assets/Lottie/121421-login.json"
 import { sharedContext } from "../../context/UserContext";
+import Modal from "./Modal";
 
 
 const Login = () => {
     const {googleSignIn, gitHubLogin, userSignIn, signInError, setSignInError} = useContext(sharedContext);
+    const navigate = useNavigate();
+	const location = useLocation();
+	let from = location.state?.from?.pathname || "/";
 
     const handleSignWithGoogle = () => {
         googleSignIn()
         .then((result) => {
             // The signed-in user info.
             const user = result.user;
+            setSignInError(null);
+            navigate(from, { replace: true });
             console.log(user);
             // ...
           }).catch((error) => {
@@ -28,6 +34,8 @@ const Login = () => {
         .then((result) => {
             // The signed-in user info.
             const user = result.user;
+            setSignInError(null);
+            navigate(from, { replace: true });
             console.log(user);
             // ...
           }).catch((error) => {
@@ -46,6 +54,7 @@ const Login = () => {
             // Signed in 
             const user = userCredential.user;
             setSignInError(null)
+            navigate(from, { replace: true });
             console.log(user);
           })
           .catch((error) => {
@@ -149,7 +158,7 @@ const Login = () => {
                         Forgot Password
                     </label>
                 </div>
-                    {/* <Modal/> */}
+                    {/* <Modal/> */} 
                 <input
                     type="password"
                     name="password"
@@ -170,7 +179,7 @@ const Login = () => {
                 Sign in
             </button>
             </form>
-        
+                <Modal/>
         </div>
     </div>
     </div>

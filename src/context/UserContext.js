@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth"
 import app from '../firebase/firebase.config'
+import swal from 'sweetalert';
+
 
 const auth=getAuth(app);
 
@@ -57,6 +59,46 @@ const UserContext = ({children}) => {
         return (signInWithPopup(auth, gitHubProvider))
     }
 
+    const userSignOut = () => {
+        return (
+            signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+              }).catch((error) => {
+                console.error('error', error);
+              })              
+        )
+    }
+
+    const updateUserProfile = (name, photoURL) => {
+        setLoading(true);
+        return (
+            updateProfile(auth.currentUser, {
+                displayName: name, 
+                photoURL: photoURL
+              }).then(() => {
+                console.log('Profile updated!');
+                setLoading(false);
+                // ...
+              }).catch((error) => {
+                console.error('error', error);
+              })              
+        )
+    }
+
+    const resetUserPassword = (email) => {
+        return (
+            sendPasswordResetEmail(auth, email)
+            .then(() => {
+                swal("Password Reset Email Sent!", "Please Check Your Email To Updated Password!", "success");
+                userSignOut();
+            })
+            .catch((error) => {
+                console.error('error', error);
+            })
+        )
+    }
+
     useEffect(()=> {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user);
@@ -65,9 +107,9 @@ const UserContext = ({children}) => {
           });
           
         return ()=> unSubscribe();
-    }, [])
+    }, []);
 
-    const contextData = {googleSignIn, gitHubLogin, createUser, signUpError, SetSignUpError, userSignIn, signInError, setSignInError, user, loading}
+    const contextData = {googleSignIn, gitHubLogin, createUser, signUpError, SetSignUpError, userSignIn, signInError, setSignInError, user, loading, userSignOut, updateUserProfile, resetUserPassword}
 
     return (
         <sharedContext.Provider value={contextData}>

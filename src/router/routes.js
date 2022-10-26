@@ -6,7 +6,9 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Faq from "../pages/Faq/Faq";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import Profile from "../pages/profile/Profile";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("./Main");
@@ -44,7 +46,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/checkout',
-                element: <Checkout/>
+                element: <PrivateRoute><Checkout/></PrivateRoute>
             },
             {
                 path: '/login',
@@ -53,6 +55,10 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register/>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile/></PrivateRoute>
             },
         ]
     }

@@ -16,6 +16,26 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPass = e.target.confirmpass.value;
+    if (!/(?=.*?[A-Z])/.test(password)){
+      SetSignUpError('Password should Contain At least one upper case');
+      return;
+    }
+    if(!/(?=.*?[a-z])/.test(password)){
+      SetSignUpError('Password should Contain At least one lower case');
+      return;
+    }
+    if(!/(?=.*?[0-9])/.test(password)){
+      SetSignUpError('Password should Contain At least one digit');
+      return;
+    }
+    if(!/(?=.*?[#?!@$%^&*-])/.test(password)){
+      SetSignUpError('Password should Contain At least one special character')
+      return;
+    }
+    if(password.length < 6){
+      SetSignUpError('Password length should be at least 4 character');
+      return;
+    }
     if (password !== confirmPass) {
       SetSignUpError('Password Did Not Match')
       return;
