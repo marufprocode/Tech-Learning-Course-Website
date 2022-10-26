@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div>
       <div className="flex justify-center py-10 px-5 bg-gray-100">
-        <div className="flex shadow-xl flex-col max-w-lg p-6 rounded-md sm:p-2 bg-teal-100 text-gray-700 w-[700px]">
+        <div className="flex shadow-xl flex-col max-w-lg py-6 px-5 md:px-10  rounded-md bg-teal-100 text-gray-700 w-[700px]">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
             <p className="text-sm text-gray-400">
