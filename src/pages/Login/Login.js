@@ -1,11 +1,61 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import Lottie from "lottie-react";
 import loginLottie from "../../Assets/Lottie/121421-login.json"
+import { sharedContext } from "../../context/UserContext";
 
 
 const Login = () => {
+    const {googleSignIn, gitHubLogin, userSignIn, signInError, setSignInError} = useContext(sharedContext);
+
+    const handleSignWithGoogle = () => {
+        googleSignIn()
+        .then((result) => {
+            // The signed-in user info.
+            const user = result.user;
+            console.log(user);
+            // ...
+          }).catch((error) => {
+            // Handle Errors here.
+            console.error('error', error);
+            // ...
+          });
+    };
+
+    const handleGitHubLogin = () => {
+        gitHubLogin()
+        .then((result) => {
+            // The signed-in user info.
+            const user = result.user;
+            console.log(user);
+            // ...
+          }).catch((error) => {
+            // Handle Errors here.
+            console.error('error', error);
+            // ...
+          });
+    }
+
+    const handleUserSignIn = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        userSignIn(email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            setSignInError(null)
+            console.log(user);
+          })
+          .catch((error) => {
+            console.error('error', error);
+            setSignInError(error.code);
+          });
+        e.target.reset();     
+    }
+
+
   return (
     <div className="grid md:grid-cols-2">
     <div className="hidden md:block">
@@ -32,6 +82,7 @@ const Login = () => {
             <button
                 aria-label="Login with Google"
                 type="button"
+                onClick={handleSignWithGoogle}
                 className="flex items-center justify-center w-full p-4 space-x-4 focus:ring-2 border border-teal-500 hover:border-teal-300 text-teal-400 focus:ring-violet-400 btn btn-outline "
             >
                 <svg
@@ -45,6 +96,7 @@ const Login = () => {
             </button>
             <button
                 aria-label="Login with GitHub"
+                onClick={handleGitHubLogin}
                 className="flex items-center justify-center w-full p-4 space-x-4 focus:ring-2 border border-teal-500 hover:border-teal-300 text-teal-400 focus:ring-violet-400 btn btn-outline"
             >
                 <svg
@@ -63,13 +115,13 @@ const Login = () => {
             <hr className="w-full text-gray-400" />
             </div>
             <form
-            novalidate=""
+            onSubmit={handleUserSignIn}
             action=""
             className="space-y-8 ng-untouched ng-pristine ng-valid"
             >
             <div className="space-y-4">
                 <div className="space-y-2">
-                <label for="email" className="block text-sm">
+                <label htmlFor="email" className="block text-sm">
                     Email address
                 </label>
                 <input
@@ -83,7 +135,7 @@ const Login = () => {
                 </div>
                 <div className="space-y-2">
                 <div className="flex justify-between">
-                    <label for="password" className="text-sm">
+                    <label htmlFor="password" className="text-sm">
                     Password
                     </label>
                     {/* <Link
@@ -97,7 +149,7 @@ const Login = () => {
                         Forgot Password
                     </label>
                 </div>
-                    <Modal/>
+                    {/* <Modal/> */}
                 <input
                     type="password"
                     name="password"
@@ -107,6 +159,9 @@ const Login = () => {
                     className="w-full px-3 py-2 border rounded-md border-teal-700 bg-gray-100 text-gray-700 focus:border-violet-400"
                 />
                 </div>
+                {
+                    signInError && <p className="text-red-500">Error: {signInError}</p>
+                }
             </div>
             <button
                 type="submit"

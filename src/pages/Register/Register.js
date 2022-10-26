@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { sharedContext } from "../../context/UserContext";
+
 
 const Register = () => {
+  const {createUser, signUpError, SetSignUpError} = useContext(sharedContext);
+  const [showPass, setShowPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
+
+  const handleCreateUser = (e) =>{
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photoURL = e.target.photourl.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPass = e.target.confirmpass.value;
+    if (password !== confirmPass) {
+      SetSignUpError('Password Did Not Match')
+      return;
+    }
+    console.log(name, photoURL, email, password, confirmPass);
+    createUser(email, password, name, photoURL)
+    e.target.reset();
+  } 
   return (
     <div>
       <div className="flex justify-center py-10 px-5 bg-gray-100">
@@ -13,6 +35,7 @@ const Register = () => {
             </p>
           </div>
           <form
+            onSubmit={handleCreateUser}
             action=""
             className="space-y-12 ng-untouched ng-pristine ng-valid"
           >
@@ -30,6 +53,17 @@ const Register = () => {
                 />
               </div>
               <div>
+                <label htmlFor="photoURL" className="block mb-2 text-sm">
+                  Photo URL
+                </label>
+                <input
+                  type="text"
+                  name="photourl"
+                  placeholder="Photo URL..."
+                  className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-200 text-gray-700"
+                />
+              </div>
+              <div>
                 <label htmlFor="email" className="block mb-2 text-sm">
                   Email address
                 </label>
@@ -41,7 +75,7 @@ const Register = () => {
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-200 text-gray-700"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <div className="flex justify-between mb-2">
                   <label htmlFor="password" className="text-sm">
                     Password
@@ -49,13 +83,14 @@ const Register = () => {
                 </div>
                 <input
                     required
-                  type="password"
+                  type={showPass? "text":"password"}
                   name="password"
                   placeholder="*****"
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-200 text-gray-700"
                 />
+                <div className="absolute right-4 bottom-3 cursor-pointer" onClick={()=>setShowPass(!showPass)}>{showPass? <FaEyeSlash/>:<FaEye/>}</div>
               </div>
-              <div>
+              <div className="relative">
                 <div className="flex justify-between mb-2">
                   <label htmlFor="password" className="text-sm">
                     Confirm Password
@@ -63,18 +98,19 @@ const Register = () => {
                 </div>
                 <input
                     required
-                  type="password"
+                  type={showConfirmPass? "text":"password"}
                   name="confirmpass"
                   placeholder="*****"
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-200 text-gray-700"
                 />
+                <div className="absolute right-4 bottom-3 cursor-pointer" onClick={()=>setShowConfirmPass(!showConfirmPass)}>{showConfirmPass? <FaEyeSlash/>:<FaEye/>}</div>
               </div>
               {/* {signUpStatus && (
                 <p className="text-green-500">User Created Succesfully</p>
-              )}
+              )} */}
               {signUpError && (
                 <p className="text-red-500">Error: {signUpError}</p>
-              )} */}
+              )}
             </div>
             <div className="space-y-2">
               <div>
