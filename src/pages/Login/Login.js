@@ -72,7 +72,7 @@ const Login = () => {
         <Lottie animationData={loginLottie} loop={true} />
         </div>
     </div>
-    <div className="flex justify-center my-10">
+    <div className="flex justify-center my-10 px-[20px]">
         <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-teal-100 text-gray-700">
             <h2 className="mb-3 text-3xl font-semibold text-center">
             Login to your account

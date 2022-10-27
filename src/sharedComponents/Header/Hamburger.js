@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Hamburger = () => {
+  const [checked, setChecked] = useState(true);
+
   return (
     <label className="btn btn-sm w-10 h-10 btn-circle swap swap-rotate">
       {/* <!-- this hidden checkbox controls the state --> */}
-      <input type="checkbox" />
+      <input type="checkbox" onClick={()=> setChecked(!checked)} checked={checked? false:true}/>
 
       {/* <!-- hamburger icon --> */}
       <svg
