@@ -15,6 +15,7 @@ const UserContext = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [theme, setTheme] = useState();
 
+    // for getting device's dafault theme 
     useEffect(()=>{
         if (window.matchMedia('(prefers-color-scheme: dark)').matches){
             setTheme('dark');
@@ -22,7 +23,7 @@ const UserContext = ({children}) => {
             setTheme('light');
         }
     },[])
-
+    
     useEffect(()=>{
         if(theme === 'dark'){
             document.documentElement.classList.add("dark");

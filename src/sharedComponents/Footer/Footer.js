@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="py-6 text-sm text-center text-gray-700 dark:text-white">
-          © 1968 Company Co. All rights reserved.
+          © 2022 OneDev Company Co. All rights reserved.
         </div>
       </footer>
   );

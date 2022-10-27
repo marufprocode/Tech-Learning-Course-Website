@@ -22,7 +22,7 @@ const Header = () => {
           <NavLi />
             </ul>
         </div>
-        <div className="flex-none gap-2 flex mt-2 ml-3 me-1">
+        <div className="flex-none gap-2 hidden md:flex mt-2 ml-3 me-1">
           <ThemeSwap />
         </div>
         <div className="flex-none gap-2 mx-3">
@@ -48,6 +48,9 @@ const Header = () => {
               tabIndex={0}
               className="mt-3 p-2 dark:bg-gray-900 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
+              <li className="md:hidden">
+                <div className="flex self-end"><ThemeSwap/></div>
+              </li>
               <li>
                 <button className="justify-between font-semibold text-purple-700 text-left">
                   {user?.displayName} 
