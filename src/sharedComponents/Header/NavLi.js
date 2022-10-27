@@ -1,20 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavLi = () => {
     return (
         <>
             <li>
-              <Link to="/home">Home</Link>
+              <NavLink to="/home" className={({isActive})=> isActive? "bg-teal-400":""}>Home</NavLink>
             </li>
             <li>
-              <Link to="/courses">Courses</Link>
+              <NavLink to="/courses" className={({isActive})=> isActive? "bg-teal-400":""}>Courses</NavLink>
             </li>
             <li>
-              <Link to="faq">Faq</Link>
+              <NavLink to="faq" className={({isActive})=> isActive? "bg-teal-400":""}>Faq</NavLink>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <NavLink to="/blogs" className={({isActive})=> isActive? "bg-teal-400":""}>Blogs</NavLink>
             </li>
           </>
     );

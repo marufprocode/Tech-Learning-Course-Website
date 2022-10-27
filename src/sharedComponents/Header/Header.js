@@ -13,7 +13,7 @@ const Header = () => {
     <div>
       <div className="navbar bg-emerald-100 dark:bg-gray-900 dark:text-white border-b px-5 md:px-8">
         <div className="flex-1">
-          <Link to="/#" className="btn bg-sky-300 border-0">
+          <Link to="/#" className="btn bg-sky-300 hover:bg-sky-400 border-0 dark:bg-slate-700">
             <img src={brandImg} alt="brandImage" className="h-[30px]"/>
           </Link>
         </div>

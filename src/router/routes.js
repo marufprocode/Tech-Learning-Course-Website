@@ -9,7 +9,6 @@ import Login from "../pages/Login/Login";
 import Profile from "../pages/profile/Profile";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import Copy from "../pages/Courses/Copy";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("./Main");
@@ -63,11 +62,7 @@ const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile/></PrivateRoute>
-            },
-            {
-                path: '/copy',
-                element: <Copy/>
-            },
+            }
         ]
     }
 ])
