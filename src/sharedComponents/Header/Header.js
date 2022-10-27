@@ -7,6 +7,7 @@ import SignUpLoginLink from "./SignUpLoginLink";
 import ThemeSwap from "./ThemeSwap";
 import brandImg from '../../Assets/Brands/LogoPrimary.png'
 
+
 const Header = () => {
   const {user, userSignOut} = useContext(sharedContext);
   return (
@@ -32,6 +33,9 @@ const Header = () => {
             </label>
             <ul tabIndex={0}
               className="mt-3 p-2 dark:bg-gray-900 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                <li className="md:hidden">
+                  <div className="flex self-end"><ThemeSwap/></div>
+                </li>
                 <div className={`flex w-full justify-center mb-2 ${user? 'hidden':'md:flex'}`} /* className="" */><SignUpLoginLink/></div>
                 <NavLi/>
             </ul>
@@ -48,9 +52,6 @@ const Header = () => {
               tabIndex={0}
               className="mt-3 p-2 dark:bg-gray-900 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li className="md:hidden">
-                <div className="flex self-end"><ThemeSwap/></div>
-              </li>
               <li>
                 <button className="justify-between font-semibold text-purple-700 text-left">
                   {user?.displayName} 

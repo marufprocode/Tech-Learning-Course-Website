@@ -9,7 +9,6 @@ const ref = React.createRef();
 
 const CourseDetail = () => {
     const courseData = useLoaderData();
-    console.log(courseData);
   return (
     <div className="bg-gray-200 dark:bg-slate-800">
       <div className="bg-gray-100 dark:bg-slate-700 dark:text-white py-10 mx-5 md:mx-14 px-1 lg:p-14">

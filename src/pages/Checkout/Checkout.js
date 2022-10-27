@@ -6,7 +6,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
     const course = useLoaderData();
-    console.log(course);
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])

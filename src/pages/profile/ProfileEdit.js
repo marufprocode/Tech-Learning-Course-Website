@@ -6,7 +6,7 @@ const ProfileEdit = ({setIsEdit}) => {
     const [showPass, setShowPass] = useState(false);
     const [showConfirmPass, setShowConfirmPass] = useState(false);
     const [showCurrPass, setShowCurrPass] = useState(false);
-    const {updateUserProfile, user, loading} = useContext(sharedContext);
+    const {updateUserProfile, user} = useContext(sharedContext);
     const nameRef = useRef(user?.displayName);
     const photoURLRef = useRef(user?.photoURL);
 
@@ -18,7 +18,6 @@ const ProfileEdit = ({setIsEdit}) => {
         const photoURL = e.target.photourl.value;
         updateUserProfile(name, photoURL);
         setIsEdit(false);
-        console.log(loading);
     }
     
 

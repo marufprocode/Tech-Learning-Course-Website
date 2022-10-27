@@ -40,11 +40,10 @@ const Register = () => {
       SetSignUpError('Password Did Not Match')
       return;
     }
-    console.log(name, photoURL, email, password, confirmPass);
     createUser(email, password, name, photoURL)
     e.target.reset();
   } 
-  
+
   return (
     <div>
       <div className="flex dark:bg-gray-800 justify-center py-10 px-5 bg-gray-100">
