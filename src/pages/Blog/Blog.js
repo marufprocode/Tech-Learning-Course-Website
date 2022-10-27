@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 const Blog = () => {
   return (
     <div className="">
-      <div className="bg-gray-100 min-h-screen text-gray-700 py-10">
+      <div className="bg-gray-100 dark:bg-slate-800 dark:text-white min-h-screen text-gray-700 py-10">
         {/* blog One  */}
-        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200">
+        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200 dark:bg-blue-900">
           <img src="https://getkt.com/wp-content/uploads/2019/02/Cross-Origin-Resource-Sharing.jpg" alt="imageJS" className="h-[300px] w-full mb-5"/>
           <div className="blog-body px-10 pt-1 pb-5">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-700">Jun 26, 2022</span>
             <Link to ="/#"
-              className="px-2 py-1 font-bold rounded bg-violet-400 text-gray-900"
+              className="px-2 py-1 font-bold rounded bg-violet-400 dark:bg-gray-500 text-gray-900"
             >
               CORS
             </Link>
@@ -37,7 +37,7 @@ const Blog = () => {
                   alt="avatar"
                   className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                 />
-                <span className="hover:underline text-gray-700">
+                <span className="hover:underline text-gray-700 dark:text-white">
                   Maruf Chowdhury
                 </span>
               </Link>
@@ -46,13 +46,13 @@ const Blog = () => {
           </div>
         </div>
         {/* Blog Two  */}
-        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200">
+        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200 dark:bg-blue-900">
           <img src="https://miro.medium.com/max/1400/1*oV5dEy7dadIYpj3cqwZtUg.png" alt="imageJS" className="h-[300px] w-full mb-5"/>
           <div className="blog-body px-10 pt-1 pb-5">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-700">Jun 28, 2022</span>
             <Link to ="/#"
-              className="px-2 py-1 font-bold rounded bg-violet-400 text-gray-900"
+              className="px-2 py-1 font-bold rounded bg-violet-400 dark:bg-gray-500 text-gray-900"
             >
               FireBase
             </Link>
@@ -91,7 +91,7 @@ const Blog = () => {
                   alt="avatar"
                   className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                 />
-                <span className="hover:underline text-gray-700">
+                <span className="hover:underline text-gray-700 dark:text-white">
                   Maruf Chowdhury
                 </span>
               </Link>
@@ -100,13 +100,13 @@ const Blog = () => {
           </div>
         </div>
         {/* Blog Three  */}
-        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200">
+        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200 dark:bg-blue-900">
           <img src="https://blog.adnanhalilovic.com/wp-content/uploads/2022/09/Protect-Routes-in-React.jpg" alt="imageJS" className="h-[300px] w-full mb-5"/>
           <div className="blog-body px-10 pt-1 pb-5">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-700">Jun 1, 2020</span>
             <Link to ="/#"
-              className="px-2 py-1 font-bold rounded bg-violet-400 text-gray-900"
+              className="px-2 py-1 font-bold rounded bg-violet-400 dark:bg-gray-500 text-gray-900"
             >
               Private Route
             </Link>
@@ -133,7 +133,7 @@ const Blog = () => {
                   alt="avatar"
                   className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                 />
-                <span className="hover:underline text-gray-700">
+                <span className="hover:underline text-gray-700 dark:text-white">
                   Maruf Chowdhury
                 </span>
               </Link>
@@ -142,13 +142,13 @@ const Blog = () => {
           </div>
         </div>
         {/* Blog Four */}
-        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200">
+        <div className="container overflow-hidden max-w-4xl my-10 mx-auto rounded-lg shadow-sm bg-emerald-200 dark:bg-blue-900">
           <img src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/01/node-js-logo.png?fit=1200%2C600&ssl=1" alt="imageJS" className="h-[300px] w-full mb-5"/>
           <div className="blog-body px-10 pt-1 pb-5">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-700">Jun 1, 2020</span>
             <Link to ="/#"
-              className="px-2 py-1 font-bold rounded bg-violet-400 text-gray-900"
+              className="px-2 py-1 font-bold rounded bg-violet-400 dark:bg-gray-500 text-gray-900"
             >
               Node.js
             </Link>
@@ -177,7 +177,7 @@ const Blog = () => {
                   alt="avatar"
                   className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                 />
-                <span className="hover:underline text-gray-700">
+                <span className="hover:underline text-gray-700 dark:text-white">
                   Maruf Chowdhury
                 </span>
               </Link>

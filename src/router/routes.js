@@ -1,14 +1,15 @@
 import Blog from "../pages/Blog/Blog";
 import Checkout from "../pages/Checkout/Checkout";
-import CourseDetail from "../pages/CourseDetail/CourseDetail";
 import Courses from "../pages/Courses/Courses";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import CourseDetail from "../pages/Courses/CourseDetail";
 import Faq from "../pages/Faq/Faq";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/profile/Profile";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import Copy from "../pages/Courses/Copy";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("./Main");
@@ -30,6 +31,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
+                loader: () => fetch("https://assignment-10-dev-one.vercel.app/courses"),
                 element: <Courses/>
             },
             {
@@ -41,12 +43,14 @@ const routes = createBrowserRouter([
                 element: <Blog/>
             },
             {
-                path: '/course-detail',
-                element: <CourseDetail/>
+                path: '/courses/:id',
+                element: <CourseDetail/>,
+                loader: ({params}) => fetch(`https://assignment-10-dev-one.vercel.app/courses/${parseInt(params.id)}`)
             },
             {
-                path: '/checkout',
-                element: <PrivateRoute><Checkout/></PrivateRoute>
+                path: '/checkout/:id',
+                element: <PrivateRoute><Checkout/></PrivateRoute>,
+                loader: ({params}) => fetch(`https://assignment-10-dev-one.vercel.app/courses/${parseInt(params.id)}`)
             },
             {
                 path: '/login',
@@ -59,6 +63,10 @@ const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile/></PrivateRoute>
+            },
+            {
+                path: '/copy',
+                element: <Copy/>
             },
         ]
     }

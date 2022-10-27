@@ -13,6 +13,27 @@ const UserContext = ({children}) => {
     const [signInError, setSignInError] = useState(null);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState();
+
+    useEffect(()=>{
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+            setTheme('dark');
+        } else{
+            setTheme('light');
+        }
+    },[])
+
+    useEffect(()=>{
+        if(theme === 'dark'){
+            document.documentElement.classList.add("dark");
+        } else{
+            document.documentElement.classList.remove("dark");
+        }
+    },[theme])
+
+    const handleThemeSwitch = () => {
+        setTheme(theme === "dark"? "light":"dark");
+    }
 
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
@@ -109,7 +130,7 @@ const UserContext = ({children}) => {
         return ()=> unSubscribe();
     }, []);
 
-    const contextData = {googleSignIn, gitHubLogin, createUser, signUpError, SetSignUpError, userSignIn, signInError, setSignInError, user, loading, userSignOut, updateUserProfile, resetUserPassword}
+    const contextData = {googleSignIn, gitHubLogin, createUser, signUpError, SetSignUpError, userSignIn, signInError, setSignInError, user, loading, userSignOut, updateUserProfile, resetUserPassword, handleThemeSwitch}
 
     return (
         <sharedContext.Provider value={contextData}>

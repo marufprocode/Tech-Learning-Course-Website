@@ -10,7 +10,7 @@ const Faq = () => {
         <div>
             <div>
                 <img src="https://i.ibb.co/DQ4FZhL/pattern-bg.png" alt="blue pattern background" className="absolute w-full h-64 md:h-96 object-center object-fit z-0" />
-                <div className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32">
+                <div className="relative flex flex-col dark:bg-gray-800 items-center justify-center sm:px-0 px-6 z-20 pb-32">
                     <div className="md:py-36 py-20">
                         <h1 className="xl:text-6xl md:text-5xl text-xl font-bold leading-10 text-white">
                             Frequently asked questions

@@ -20,8 +20,8 @@ const Profile = () => {
       </div>
   );
   return (
-    <div className="container border min-h-screen mx-auto flex justify-center">
-      <div className="border m-5 md:my-10 p-10 rounded-lg min-w-[80%] font-Paytone" style={{background:'radial-gradient(circle, rgba(174,238,189,1) 0%, rgba(148,187,233,1) 100%)'}}>
+    <div className="min-h-screen mx-auto flex justify-center dark:bg-slate-700">
+      <div className="border m-5 md:my-10 p-10 rounded-lg min-w-[80%] font-Paytone dark:bg-slate-800" style={{background:'radial-gradient(circle, rgba(174,238,189,1) 0%, rgba(148,187,233,1) 100%)'}}>
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">My Profile</h1>
           <button className="text-red-600 font-semibold" onClick={()=> setIsEdit(!isedit)}>Edit Profile</button>

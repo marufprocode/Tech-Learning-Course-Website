@@ -66,7 +66,7 @@ const Login = () => {
 
 
   return (
-    <div className="grid md:grid-cols-2">
+    <div className="grid md:grid-cols-2 dark:bg-gray-800">
     <div className="hidden md:block">
         <div>
         <Lottie animationData={loginLottie} loop={true} />

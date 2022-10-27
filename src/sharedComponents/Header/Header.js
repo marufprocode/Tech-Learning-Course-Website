@@ -9,10 +9,9 @@ import brandImg from '../../Assets/Brands/LogoPrimary.png'
 
 const Header = () => {
   const {user, userSignOut} = useContext(sharedContext);
-
   return (
     <div>
-      <div className="navbar bg-emerald-100 border-b">
+      <div className="navbar bg-emerald-100 dark:bg-gray-900 dark:text-white border-b px-5 md:px-8">
         <div className="flex-1">
           <Link to="/#" className="btn bg-sky-300 border-0">
             <img src={brandImg} alt="brandImage" className="h-[30px]"/>
@@ -32,8 +31,8 @@ const Header = () => {
                 <Hamburger/>
             </label>
             <ul tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                <div className="flex w-full justify-center mb-2"><SignUpLoginLink/></div>
+              className="mt-3 p-2 dark:bg-gray-900 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                <div className={`flex w-full justify-center mb-2 ${user? 'hidden':'md:flex'}`} /* className="" */><SignUpLoginLink/></div>
                 <NavLi/>
             </ul>
           </div>
@@ -47,7 +46,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 p-2 dark:bg-gray-900 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
                 <button className="justify-between font-semibold text-purple-700 text-left">

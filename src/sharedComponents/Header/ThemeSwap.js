@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { sharedContext } from "../../context/UserContext";
 
 const ThemeSwap = () => {
+  const {handleThemeSwitch} = useContext(sharedContext);
   return (
     <ul>
       <li>
         <label className="swap swap-rotate">
           {/* <!-- this hidden checkbox controls the state --> */}
-          <input type="checkbox" />
+          <input type="checkbox" onChange={handleThemeSwitch}/>
           {/* <!-- sun icon --> */}
           <svg
             className="swap-on fill-current w-6 h-6"
