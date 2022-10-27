@@ -1,4 +1,21 @@
+## Live Website Link: https://tech-learning-website.web.app/
+### Website Features:
+    * Private Route Implemented.
+    * Single Page Application give you better experience.
+    * Light/Dark Mode toggle implemented and default theme will be your device preferences.
+    * You can explore our blogs to enhance knowledge.
+    * Firebase Authentication Implemented.
+    * You can edit your profile from edit options.
+    * Auto Pdf downloadable button for course material.
 
+### Technologies Used in this project:
+    * React Router Dom with firebase authentication.
+    * React-Icons and Spinner Used.
+    * For CSS Tailwind and Daisy Ui used.
+    * React-confettie implemented.
+    * Sweet Alert.
+    * React to pdf.
+    * Custom Server Site Data.
 
 ### `npm start`
 
