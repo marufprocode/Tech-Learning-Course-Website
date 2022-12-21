@@ -33,7 +33,7 @@ const Register = () => {
       return;
     }
     if(password.length < 6){
-      SetSignUpError('Password length should be at least 4 character');
+      SetSignUpError('Password length should be at least 6 character');
       return;
     }
     if (password !== confirmPass) {
